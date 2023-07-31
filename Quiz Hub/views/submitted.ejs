@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Hub</title>
+    <link rel="stylesheet" href="styles/submitted.css">
+    <link rel="stylesheet" href="styles/search.css">
+</head>
+<body>
+    <div class="topBar">
+        <div id="searchBar">
+            <input type="text" id="searchBox" placeholder="Search users or quizzes">
+            <div id="suggestionsBox">
+                <ul id="suggestionsList">
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sideBar">
+        <ul class="sideList">
+            <a href="/create"><li>CREATE QUIZ</li></a>
+            <a href="/scores"><li>PREVIOUS QUIZZES</li></a>
+            <a href="/user?username=<%= username %>"><li>PROFILE</li></a>
+            <a href="/auth?state=logout"><li>SIGNOUT</li></a>
+        </ul>
+    </div>
+    
+    <div class="content">
+        
+        <h1 class="quizName"><%= quizInfo[0].quizname %></h1>
+        <h3>Your Results</h3>
+        <h4 id="score"></h4>
+        <div id="display-box"></div>
+    </div>
+    <script>
+        let usersName = '<%= usersName %>';
+        let username = '<%= username %>';
+        let quiz = '<%- JSON.stringify(quiz) %>';
+        let userAnswers = '<%- JSON.stringify(userAnswers) %>';
+        let quizInfo = '<%- JSON.stringify(quizInfo) %>';
+        let score = '<%- score %>';
+        let quizzesInfo = '<%- JSON.stringify(quizzesInfo) %>';
+        let usersInfo = '<%- JSON.stringify(usersInfo) %>';
+    </script>
+    <script src="scripts/submitted.js"></script>
+    <script src="scripts/search.js"></script>
+</body>
+</html>

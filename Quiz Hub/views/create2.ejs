@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Hub</title>
+    <link rel="stylesheet" href="styles/create2.css">
+    <link rel="stylesheet" href="styles/search.css">
+</head>
+<body>
+    <div class="topBar">
+        <div id="searchBar">
+            <input type="text" id="searchBox" placeholder="Search users or quizzes">
+            <div id="suggestionsBox">
+                <ul id="suggestionsList">
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sideBar">
+        <ul class="sideList">
+
+            <a href="/create"><li>CREATE QUIZ</li></a>
+            <a href="/scores"><li>PREVIOUS QUIZZES</li></a>
+            <a href="/user?username=<%= username %>"><li>PROFILE</li></a>
+            <a href="/auth?state=logout"><li>SIGNOUT</li></a>
+
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h1>CREATING QUIZ</h1>
+        <form id="quizForm" action="/created" method="post">
+            <div id="input">
+                <h2 class="quizName">Title of the Quiz: <%= quizName %></h2>
+            </div>
+    
+            <button type="submit">Create Quiz</button>
+        </form>
+    </div>
+    
+    <script>
+        let usersName = '<%= usersName %>';
+        let username = '<%= username %>';
+        let quizName = '<%= quizName %>';
+        let numberOfQuestions = '<%= numberOfQuestions %>';
+        let quizzes = '<%- JSON.stringify(quizzes) %>';
+        let quizzesInfo = '<%- JSON.stringify(quizzesInfo) %>';
+        let usersInfo = '<%- JSON.stringify(usersInfo) %>';
+    </script>
+    <script src="scripts/create2.js"></script>
+    <script src="scripts/search.js"></script>
+</body>
+</html>
